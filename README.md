@@ -2,6 +2,7 @@
 # Memento Mori Calendar
 
 Welcome to the Memento Mori Calendar, a project created with Next.js and day.js!
+[Live Demo](https://stoic.sahajdave.com)
 
 <img src="https://github.com/davesahaj/memento-mori-calendar/assets/20627503/c6783495-2f72-4e04-b63a-6b71a3731a27" alt="image" width="600" height="300">
 
