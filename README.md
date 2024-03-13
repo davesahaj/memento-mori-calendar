@@ -3,14 +3,8 @@
 
 Welcome to the Memento Mori Calendar, a project created with Next.js and day.js!
 
-<img src="https://github.com/davesahaj/memento-mori-calendar/assets/20627503/c6783495-2f72-4e04-b63a-6b71a3731a27" alt="image" width="300" height="200">
+<img src="https://github.com/davesahaj/memento-mori-calendar/assets/20627503/c6783495-2f72-4e04-b63a-6b71a3731a27" alt="image" width="600" height="300">
 
-
-To add width and height to the image in Markdown, you can use HTML syntax within Markdown. Here's how you can modify your Markdown to include width and height attributes:
-
-
-
-Replace the values of `width` and `height` with the desired dimensions for your image.
 
 ## Introduction
 The Memento Mori Calendar is a unique take on organizing your time, inspired by the ancient philosophy of "Memento Mori" which translates to "Remember that you will die". This calendar serves as a reminder of the finite nature of life, encouraging reflection and mindfulness in how we choose to spend our days.
