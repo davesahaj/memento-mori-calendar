@@ -1,25 +1,30 @@
-"use client";
 import dayjs from "dayjs";
+import { quotesData } from "@/app/constants/quotes";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
+import { Quotes } from "./components/quotes";
 
-const weeksIn80Years = 4174;
+dayjs.extend(isSameOrBefore);
+
+const WEEKS_IN80_YEARS = 4174;
 
 const birthDate = dayjs("1998-06-16");
-const fromBirthTo80Years = birthDate.add(weeksIn80Years, "w");
+
+const fromBirthTo80Years = birthDate.add(WEEKS_IN80_YEARS, "w");
 
 const weeksPassed = fromBirthTo80Years.diff(birthDate, "week");
 
 function Week({ id: week, year, decade }) {
-  function onClick() {
-    const currentDate = birthDate
-      .add((decade - 1) * 10, "y")
-      .add(year - 1, "y")
-      .add(week - 1, "w");
+  const weekDate = birthDate
+    .add((decade - 1) * 10, "y")
+    .add(year - 1, "y")
+    .add(week - 1, "w");
 
-    console.log(currentDate);
-  }
+  const isFuture = dayjs().isSameOrBefore(weekDate, "week");
 
   return (
-    <div onClick={onClick} className="w-2 h-2 bg-black border border-black" />
+    <div
+      className={`w-2 h-2 border border-black ${isFuture ? "" : "bg-black"}`}
+    />
   );
 }
 
@@ -35,7 +40,7 @@ function Year({ id, decade }) {
       </div>
       <div className="flex flex-row flex-nowrap gap-1">
         {weeks.map((item, index) => (
-          <Week key={item + 27} id={item + 1} year={id} decade={decade} />
+          <Week key={item + 27} id={item + 27} year={id} decade={decade} />
         ))}
       </div>
     </div>
@@ -69,7 +74,7 @@ function Life() {
 export default function Home() {
   return (
     <main className="flex min-h-screen py-10 px-16">
-      <div className="flex items-start pt-10 justify-center w-[15%] border border-solid border-red-700">
+      <div className="flex items-start pt-10 justify-center w-[15%]">
         <span
           className="text-8xl font-extralight"
           style={{ writingMode: "sideways-lr" }}
@@ -77,8 +82,9 @@ export default function Home() {
           MEMENTO MORI
         </span>
       </div>
-      <div className="flex w-[85%] border border-solid border-red-700">
+      <div className="flex w-full">
         <Life />
+        <Quotes />
       </div>
     </main>
   );
